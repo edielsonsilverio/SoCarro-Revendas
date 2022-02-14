@@ -1,0 +1,51 @@
+﻿@using SoCarro.WebApp.MVC.ViewModels
+@model IEnumerable<ProprietarioViewModel>
+
+<br />
+<div class="border backgroundWhite container">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="textColor">Lista de Proprietário</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Proprietario" asp-action="Adicionar" class="btn controlColor"><i class="icon-plus1"></i> &nbsp; Inserir</a>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    @{
+        List<string> toolbar = new List<string>();
+        toolbar.Add("Print");
+        toolbar.Add("ExcelExport");
+        toolbar.Add("PdfExport");
+        toolbar.Add("CsvExport");
+        toolbar.Add("Search");
+
+    }
+    <div class="control-section">
+        <ejs-grid id="Grid" dataSource="@Model" 
+                  allowPaging="true"
+                  allowSorting="true"
+                  allowResizing="false"
+                  allowFiltering="false"
+                  allowGrouping="false" toolbar="@(new List<string>() { "Print","Search" })">
+            <e-grid-pagesettings pageCount="5"></e-grid-pagesettings>
+            <e-grid-filterSettings type="Menu"></e-grid-filterSettings>
+            <e-grid-selectionsettings type="Single"></e-grid-selectionsettings>
+
+            <e-grid-columns >
+                @*<e-grid-column field="Id" headerText="Id" isPrimaryKey="true" textAlign="Left" width="100"  ></e-grid-column>*@
+                <e-grid-column field="Nome" headerText="Descrição" textAlign="Left"></e-grid-column>
+                <e-grid-column field="Documento" headerText="Documento" textAlign="Left"></e-grid-column>
+                <e-grid-column field="Ativo" headerText="Ativo" autoFit="true" displayAsCheckBox="true" textAlign="Center"></e-grid-column>
+                <e-grid-column field="Id" displayAsCheckBox="true" headerText="" width="70"  
+                               template="<a rel='nofollow' href='Proprietario/Atualizar/${Id}' class='btn btn-success'> <i class='icon-edit'></i><a>">
+                </e-grid-column>
+                <e-grid-column field="Id" headerText="" width="70"  visible="false"
+                               template="<a rel='nofollow' href='Proprietario/Excluir/${Id}' class='btn btn-danger'> <i class='icon-trash-alt'></i><a>" >
+                </e-grid-column>
+            </e-grid-columns>
+        </ejs-grid>
+    </div>
+</div>

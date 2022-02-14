@@ -1,0 +1,23 @@
+﻿@using SoCarro.Core
+
+@if (TempData[GlobalConstants.SUCCESS] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>*@
+    <script src="~/js/toastrDisplay.js"></script>
+    <script type="text/javascript">
+        toastr.success('@TempData[GlobalConstants.SUCCESS]');
+    </script>
+}
+@if (TempData[GlobalConstants.ERROR] != null)
+{
+    <div class="style-msg errormsg">
+	    <div class="sb-msg"><i class="icon-remove"></i><strong>Oh snap!</strong> Atenção, altere algumas coisas e tente enviar novamente.</div>
+	</div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>*@
+    <script src="~/js/toastrDisplay.js"></script>
+    <script type="text/javascript">
+        toastr.error('@TempData[GlobalConstants.ERROR]');
+    </script>
+}

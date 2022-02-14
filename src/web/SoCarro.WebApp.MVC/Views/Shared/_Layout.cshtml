@@ -1,0 +1,83 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Só Carro Enterprise</title>
+    <!-- CSS only -->
+  <!-- Stylesheets
+    ============================================= -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/plugin/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="~/plugin/style.css" type="text/css" />
+    <link rel="stylesheet" href="~/plugin/css/swiper.css" type="text/css" />
+    <link rel="stylesheet" href="~/plugin/css/dark.css" type="text/css" />
+    <link rel="stylesheet" href="~/plugin/css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="~/plugin/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="~/plugin/css/magnific-popup.css" type="text/css" />
+
+    <link rel="stylesheet" href="~/plugin/css/responsive.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Document Title
+    ============================================= -->
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/sweetalert2.css" />
+    @*<link rel="stylesheet" href="~/css/dataTable.css" />*@
+    <link rel="stylesheet" href="~/css/toastrDisplay.css" />
+
+    <!-- Syncfusion Essential JS 2 Styles -->
+    @* <link rel="stylesheet" href="~/css/ej2/bootstrap.css" />*@
+    @*<link rel="stylesheet" href="~/css/ej2/fabric.css" />*@
+    @*<link rel="stylesheet" href="~/css/ej2/highcontrast.css" />*@
+    <link rel="stylesheet" href="~/css/ej2/material.css" />
+    <script src="~/js/ej2/ej2.min.js"></script>
+
+</head>
+<body class="stretched">
+
+    <!-- Document Wrapper
+    ============================================= -->
+    <div id="wrapper" >
+
+        <!-- Partial Menu
+    ============================================= -->
+        <partial name="_MenuSocial" /><!--#MPartial Menu end -->
+        <!-- Content
+    ============================================= -->
+        <div id="content">
+            <partial name="_Notifications" />
+            @RenderBody()
+
+        </div><!-- #content end -->
+        <!-- Partial Footer
+    ============================================= -->
+        <partial name="_Footer" /><!-- #content end -->
+
+    </div><!-- #wrapper end -->
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/2.9.0/jquery.serializejson.min.js"></script>
+    <!-- External JavaScripts
+    ============================================= -->
+    <script src="~/plugin/js/jquery.js"></script>
+    <script src="~/plugin/js/plugins.js"></script>
+    <script src="~/plugin/js/functions.js"></script>
+    <script src="~/plugin/js/holder.js"></script>
+    <!-- Footer Scripts
+    ============================================= -->
+
+    <script src="~/js/site.js"></script>
+    <script src="~/js/sweetalert2.js"></script>
+    @*<script src="~/js/dataTable.js"></script>*@
+    <script src="~/js/toastrDisplay.js"></script>
+
+    <!-- Syncfusion Essential JS 2 ScriptManager -->
+    <ejs-scripts></ejs-scripts>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

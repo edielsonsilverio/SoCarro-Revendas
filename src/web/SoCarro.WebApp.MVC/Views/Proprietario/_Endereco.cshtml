@@ -1,0 +1,48 @@
+﻿@model SoCarro.WebApp.MVC.ViewModels.ProprietarioViewModel
+
+<div class="form-group row">
+    <input type="hidden" asp-for="Endereco.Id" />
+    <div class="col-6">
+        @*<ejs-textbox id="Cep" cssClass="e-outline" placeholder="Cep" floatLabelType="Always" ejs-for="Cep"></ejs-textbox>*@
+        <ejs-maskedtextbox id="Cep"  mask="00000000" cssClass="e-outline" placeholder="Cep" floatLabelType="Always" ejs-for="Endereco.Cep"></ejs-maskedtextbox>
+        <span asp-validation-for="Endereco.Cep" class="text-danger"></span>
+    </div>
+
+    <div class="col-6">
+        <ejs-textbox id="Logradouro" cssClass="e-outline" placeholder="Logradouro" floatLabelType="Always" ejs-for="Endereco.Logradouro"></ejs-textbox>
+        <span asp-validation-for="Endereco.Logradouro" class="text-danger"></span>
+    </div>
+</div>
+<div class="form-group row">
+
+    <div class="col-6">
+        <ejs-textbox id="Numero" cssClass="e-outline" placeholder="Numero" floatLabelType="Always" ejs-for="Endereco.Numero"></ejs-textbox>
+        <span asp-validation-for="Endereco.Numero" class="text-danger"></span>
+    </div>
+
+    <div class="col-6">
+        <ejs-textbox id="Complemento" cssClass="e-outline" placeholder="Complemento" floatLabelType="Always" ejs-for="Endereco.Complemento"></ejs-textbox>
+        <span asp-validation-for="Endereco.Complemento" class="text-danger"></span>
+    </div>
+</div>
+
+<div class="form-group row">
+
+    <div class="col-12">
+        <ejs-textbox id="Bairro" cssClass="e-outline" placeholder="Bairro" floatLabelType="Always" ejs-for="Endereco.Bairro"></ejs-textbox>
+        <span asp-validation-for="Endereco.Bairro" class="text-danger"></span>
+    </div>
+</div>
+<div class="form-group row">
+
+    <div class="col-6">
+        <ejs-textbox id="Cidade" cssClass="e-outline" placeholder="Cidade" floatLabelType="Always" ejs-for="Endereco.Cidade"></ejs-textbox>
+        <span asp-validation-for="Endereco.Cidade" class="text-danger"></span>
+    </div>
+
+    <div class="col-6">
+        <ejs-textbox id="Estado" cssClass="e-outline" placeholder="Estado" floatLabelType="Always" ejs-for="Endereco.Estado"></ejs-textbox>
+        <span asp-validation-for="Endereco.Estado" class="text-danger"></span>
+    </div>
+</div>
+

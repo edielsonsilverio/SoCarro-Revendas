@@ -1,0 +1,17 @@
+﻿@model int
+
+    <div class="row">
+        <div class="col">
+            <a asp-action="Index" class="btn controlColor form-control">
+                <i class="icon-reply-all" aria-hidden="true"></i>&nbsp;
+                Voltar para Lista
+            </a>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn controlColor form-control" asp-route-id="@Model">
+                <i class="icon-refresh2" aria-hidden="true"></i>&nbsp;
+                Atualizar
+            </button>
+        </div>
+
+    </div>

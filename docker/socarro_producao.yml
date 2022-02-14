@@ -1,0 +1,92 @@
+version: "3"
+
+#1- Baixar a imagem do RabbitMq [ rabbitmq:3-management ]
+#1.1 - Instalar o RabbitMq
+#  docker run -d — hostname ess-rabbit — name rabbit-socarro -p 15672:15672 -p 5672:5672  rabbitmq:3-management
+#1.2 - Instalar o contanier do RabbitMq
+#   docker pull rabbitmq
+#   docker run -d —-hostname ess-rabbit —-name rabbit-socarro -p 15672:15672 -p 5672:5672  rabbitmq:latest
+
+#2- Baixar a imagem do SqlServer com o nome [ ess/socarro-sql-server:latest ]
+#2.1 - Instalar o SqlServer
+#
+#3- Baixar a imagem do NgInx [ess/socarro-server:latest]
+#4- Comando para executar o docker compose [ docker-compose -f socarro_producao.yml up --build ]
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbit-socarro
+    restart: always   
+    ports:
+      - "5672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "socarro"
+      RABBITMQ_DEFAULT_PASS: "socarro"
+
+  sql-server:
+    image: ess/socarro-sql-server:latest
+    container_name: socarro-sql-server
+    build: 
+      context: ../sql
+      dockerfile: ./Dockerfile
+    restart: always   
+    ports:
+      - "11433:11433"
+    environment:
+      SA_PASSWORD: "MeuDB@123"
+      ACCEPT_EULA: "Y" 
+
+  web-mvc:
+    image: ess/socarro-web-mvc-veiculo:latest
+    container_name: socarro-web-mvc-veiculo
+    build:
+      context: ../src
+      dockerfile: ./web/SoCarro.WebApp.MVC/Dockerfile
+    restart: always   
+    ports:
+      - "5001:5001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://*:5001
+    volumes: 
+      - dpkeys:/var/data_protection_keys/         
+    depends_on:
+      - api-veiculo
+
+  api-veiculo:
+    image: ess/socarro-web-api:latest
+    container_name: socarro-web-api-veiculo    
+    build: 
+      context: ../src
+      dockerfile: ./web/SoCarro.WebApi/Dockerfile
+    restart: always    
+    ports:
+      - "5101:5102"
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=https://+:5101;http://+5102
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=nerdstore
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/socarro-certificate.pfx
+    volumes:
+      - ./certs:/https:ro
+    depends_on:
+      - rabbitmq
+      - sql-server
+
+  socarro-server:
+    image: ess/socarro-server:latest
+    container_name: socarro-server    
+    build: 
+      context: ./
+      dockerfile: ./nginx/Dockerfile 
+    restart: always 
+    ports:
+      - "81:81"
+      - "443:443"
+    depends_on:
+      - web-mvc
+volumes:
+  dpkeys:
+
+# docker-compose -f socarro_producao.yml up --build

@@ -1,0 +1,64 @@
+﻿@using SoCarro.WebApp.MVC.ViewModels
+@model MarcaViewModel
+
+@{
+    var title = "Inserir";
+}
+
+<form method="post" asp-action="Adicionar">
+    <vc:Summary></vc:Summary>
+    <div class="row mt-3">
+        <div class="col-3"></div>
+        <div class="   backgroundWhite border col-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-12">
+                <h2 class="textColor">@title</h2>
+                <br />
+            </div>
+
+            <div class="col-12">
+                <div class="form-group row">
+
+                    <div class="col-10">
+                        <ejs-textbox id="Descricao" cssClass="e-outline" placeholder="Descricao" floatLabelType="Always" ejs-for="Nome"></ejs-textbox>
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="col-2">
+                        <ejs-radiobutton value="0" cssClass="e-outline" id="radAtivo" label="Ativo" name="Status" checked="true"></ejs-radiobutton><br/>
+                        <ejs-radiobutton value="1" cssClass="e-outline" id="radCancelado" label="Cancelado" name="Status" ></ejs-radiobutton>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-10">
+                        <div class="row">
+
+                            <div class="col">
+                                <a asp-action="Index" class="btn controlColor form-control">
+                                    <i class="icon-reply" aria-hidden="true"></i>&nbsp;
+                                    Voltar para Lista
+                                </a>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn controlColor form-control">
+                                    <i class="icon-save" aria-hidden="true"></i>&nbsp;&nbsp;Salvar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-3"></div>*@
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+	@{
+    <partial name="_ValidationScriptsPartial" />
+	}
+}

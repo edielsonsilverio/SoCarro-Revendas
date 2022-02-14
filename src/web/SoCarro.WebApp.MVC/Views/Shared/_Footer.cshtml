@@ -1,0 +1,53 @@
+﻿@using Microsoft.Extensions.Configuration
+
+<!-- Footer
+    ============================================= -->
+<footer id="footer">
+
+    <!-- Copyrights
+    ============================================= -->
+    <div id="copyrights">
+
+        <div class="container clearfix">
+
+            <div class="col_half">
+                @*<img src="~/imagem/footer-widget-logo.png" alt="Footer Logo" class="footer-logo">*@
+                Copyrights &copy; @DateTime.Now.Year.ToString() Todos direitos reservados Só Carro.
+            </div>
+
+            <div class="col_half col_last tright">
+                <div class="copyrights-menu copyright-links fright clearfix">
+                    <a asp-controller="Home" asp-action="Index">Home</a>/
+                    <a href="#" >Quem Somos</a>/
+                    <a asp-controller="Veiculo" asp-action="Index">Veiculo</a>/
+                    <a asp-controller="Marca" asp-action="Index">Marca</a>/
+                    <a asp-controller="Proprietario" asp-action="Index">Proprietario</a>/
+                    <a href="#">Contato</a>
+                </div>
+
+                <div class="fright clearfix">
+                    <a href="#" class="social-icon si-small si-borderless nobottommargin si-facebook">
+                        <i class="icon-facebook"></i>
+                        <i class="icon-facebook"></i>
+                    </a>
+
+                    <a href="#" class="social-icon si-small si-borderless nobottommargin si-twitter">
+                        <i class="icon-twitter"></i>
+                        <i class="icon-twitter"></i>
+                    </a>
+
+                    <a href="#" class="social-icon si-small si-borderless nobottommargin si-gplus">
+                        <i class="icon-gplus"></i>
+                        <i class="icon-gplus"></i>
+                    </a>
+                    <a href="#" class="social-icon si-small si-borderless nobottommargin si-gplus">
+                        <i class="icon-instagram"></i>
+                        <i class="icon-instagram"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div><!-- #copyrights end -->
+</footer><!-- #footer end -->

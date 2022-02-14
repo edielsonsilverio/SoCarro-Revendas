@@ -1,0 +1,5 @@
+ArcGIS Server Account...: arcgis
+Passwork................: Wco3027
+
+Usuario do Site ........: siteadmin
+Senha ..................: Wco3027

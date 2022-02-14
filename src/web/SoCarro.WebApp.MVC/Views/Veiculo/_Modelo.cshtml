@@ -1,0 +1,23 @@
+﻿@model SoCarro.WebApp.MVC.ViewModels.VeiculoViewModel
+
+<div class="form-group row">
+
+    <input type="hidden" asp-for="Modelo.Id" />
+    <div class="col-6">
+        <ejs-textbox id="ModeloDescricao" cssClass="e-outline" placeholder="Descrição" floatLabelType="Always" ejs-for="Modelo.Descricao"></ejs-textbox>
+        <span asp-validation-for="Modelo.Descricao" class="text-danger"></span>
+    </div>
+
+    <div class="col-3">
+        @*<ejs-numerictextbox id="ModeloAnoFabricacao" format="n" cssClass="e-outline" placeholder="Ano de Fabricação" floatLabelType="Always" ejs-for="Modelo.AnoFabricacao"></ejs-numerictextbox>*@
+         <ejs-datepicker id="ModeloAnoFabricacao" ejs-for="Modelo.AnoFabricacao" format="yyyy" placeholder="Ano de Fabricação"></ejs-datepicker>
+        <span asp-validation-for="Modelo.AnoFabricacao" class="text-danger"></span>
+    </div>
+
+    <div class="col-3">
+        @*<ejs-numerictextbox id="ModeloAnoModelo" format="n" cssClass="e-outline" placeholder="Ano do Modelo" floatLabelType="Always" ejs-for="Modelo.AnoModelo"></ejs-numerictextbox>*@
+        <ejs-datepicker id="ModeloAnoModelo" ejs-for="Modelo.AnoModelo" format="yyyy" placeholder="Ano do Modelo"></ejs-datepicker>
+        <span asp-validation-for="Modelo.AnoModelo" class="text-danger"></span>
+    </div>
+</div>
+

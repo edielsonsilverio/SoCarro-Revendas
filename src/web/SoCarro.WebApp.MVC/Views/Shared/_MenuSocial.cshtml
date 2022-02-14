@@ -1,0 +1,108 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http
+@using SoCarro.Core
+@inject IHttpContextAccessor HttpContextAccessor
+<!-- Top Bar
+    ============================================= -->
+<div id="top-bar" class="controlColor" style="border-bottom-color:gold">
+
+    <div class="container clearfix ">
+
+        <div class="col_half col_last nobottommargin">
+
+            <!-- Top Links
+            ============================================= -->
+            <div class="top-links">
+                <partial name="_LoginPartial" />
+            </div><!-- .top-links end -->
+
+        </div>
+
+        <div class="col_half   nobottommargin">
+
+            <!-- Top Social
+            ============================================= -->
+            <div id="top-social">
+                <ul>
+                    <li><a href="#" class="si-facebook textColorNext"><span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span></a></li>
+                    <li><a href="#" class="si-instagram textColorNext"><span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span></a></li>
+                    <li><a href="#" class="si-email3 textColorNext"><span class="ts-icon"><i class="icon-line2-envelope"></i></span><span class="ts-text">Email</span></a></li>
+                </ul>
+            </div><!-- #top-social end -->
+
+        </div>
+    </div>
+
+</div><!-- #top-bar end -->
+<!-- Header
+============================================= -->
+<header id="header" class="sticky-style-2 " style="border-bottom-color:gold">
+
+    <div class="container clearfix">
+
+        <!-- Logo
+        ============================================= -->
+        <div id="logo">
+            <a asp-controller="Home" asp-action="Index" class="standard-logo" data-dark-logo="~/imagem/logo-dark.png"><img src="~/imagem/logo-resto.svg" alt="Logo"></a>
+            <a asp-controller="Home" asp-action="Index" class="retina-logo" data-dark-logo="~/imagem/logo-dark@2x.png"><img src="~/imagem/logo-resto.svg" alt="Logo"></a>
+        </div>
+        <!-- #logo end -->
+
+        <ul class="header-extras">
+            <li>
+                <i class="i-plain icon-whatsapp nomargin textColorNext"></i>
+                <div class="he-text">
+                    Celular
+                    <span class="text-white">(65) 0.0000-0000</span>
+                </div>
+            </li>
+            <li>
+                <i class="i-plain icon-call nomargin textColorNext"></i>
+                <div class="he-text">
+                    Telefone Fixo
+                    <span class="text-white">(65) 0000-0000</span>
+                </div>
+            </li>
+            <li>
+                <i class="i-plain icon-line2-envelope nomargin textColorNext"></i>
+                <div class="he-text">
+                    Email
+                    <span class="text-white">comercial@socarro.com.br</span>
+                </div>
+            </li>
+            <li>
+                <i class="i-plain icon-line-clock nomargin textColorNext"></i>
+                <div class="he-text">
+                    Aberto
+                    <span class="text-white">Segunda - Sexta, das 8:00 às 17:45</span>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+    <div id="header-wrap">
+
+        <!-- Primary Navigation
+        ============================================= -->
+        <nav id="primary-menu" class="with-arrows style-2 center">
+
+            <div class="container clearfix">
+
+                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index"><div><i class="icon-home2"></i>Home</div></a></li>
+                    <li><a asp-controller="QuemSomos" asp-action="Index"><div></i>Quem Somos</div></a></li>
+                    <li><a asp-controller="Marca" asp-action="Index"><div><i class="icon-project-diagram"></i>Marca</div></a></li>
+                    <li><a asp-controller="Veiculo" asp-action="Index"><div><i class="icon-file-alt"></i>Veiculo</div></a></li>
+                    <li><a asp-controller="Proprietario" asp-action="Index"><div><i class="icon-star3"></i>Proprietario</div></a></li>
+                    <li><a href="#"><div><i class="icon-map-marker2"></i>Contato</div></a></li>
+                </ul>
+            </div>
+
+        </nav><!-- #primary-menu end -->
+
+    </div>
+
+</header><!-- #header end -->

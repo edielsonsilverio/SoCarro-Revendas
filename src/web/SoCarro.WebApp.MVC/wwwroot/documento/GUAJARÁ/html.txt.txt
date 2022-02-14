@@ -1,0 +1,22 @@
+@model WebRelatorio.Controllers.HomeModel
+@* responsavel por mostrar um retangulo estilizado  *@
+<header class="fitaRel">
+    <h1>Relatório</h1>
+</header>
+
+<div class="container">
+
+    <div class="BorderCircle">
+        @try
+        {
+            @await Model.WebReport.Render();
+        }
+        catch (NullReferenceException e)
+        {
+            <p>@e</p>
+        }
+    </div>
+</div>
+
+@* footer *@
+<div class="fitaRelFooter"></div>

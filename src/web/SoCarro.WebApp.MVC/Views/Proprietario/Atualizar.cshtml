@@ -1,0 +1,89 @@
+﻿@using SoCarro.WebApp.MVC.ViewModels
+@model ProprietarioViewModel
+
+@{
+    var title = "Atualizar";
+}
+
+<form method="post" asp-action="Atualizar">
+    <vc:Summary></vc:Summary>
+    <div class="row mt-3">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="Endereco.Id" />
+        <input type="hidden" asp-for="TipoProprietario" />
+        <div class="col-3"></div>
+        <div class="   backgroundWhite border col-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-12">
+                <h2 class="textColor">@title</h2>
+                <br />
+            </div>
+
+            <div class="col-12">
+                <div class="form-group row">
+
+                    <div class="col-10">
+                        <ejs-textbox id="Nome" cssClass="e-outline" placeholder="Nome" floatLabelType="Always" ejs-for="Nome"></ejs-textbox>
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <ejs-radiobutton value="0" cssClass="e-outline" id="radAtivo" label="Ativo" name="Status" checked="true"></ejs-radiobutton><br />
+                        <ejs-radiobutton value="1" cssClass="e-outline" id="radCancelado" label="Cancelado" name="Status"></ejs-radiobutton>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-6">
+                        <ejs-maskedtextbox id="Documento" mask=">999.999.999-99" cssClass="e-outline" placeholder="Documento" floatLabelType="Always" ejs-for="Documento"></ejs-maskedtextbox>
+                        <span asp-validation-for="Documento" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-6">
+                        @*<input asp-for="@Model.Email" type="email"  placeholder="Digite o Email" class="required email sm-form-control" />*@
+                        <ejs-textbox id="Email" cssClass="e-outline" placeholder="Email" floatLabelType="Always" ejs-for="Email"></ejs-textbox>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <hr />
+
+
+                <partial name="_Endereco" model="@Model" />
+
+                <div class="form-group row">
+                    <div class="col-12">
+                        <div class="row">
+
+                            <div class="col">
+                                <a asp-action="Index" class="btn controlColor form-control">
+                                    <i class="icon-reply" aria-hidden="true"></i>&nbsp;
+                                    Voltar para Lista
+                                </a>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn controlColor form-control">
+                                    <i class="icon-save" aria-hidden="true"></i>&nbsp;&nbsp;Salvar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<partial name="_DetalhesEndereco" />*@
+            </div>
+            @*<div class="col-3"></div>*@
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+
+<script>
+    BuscaCep();
+</script>
+}

@@ -1,0 +1,31 @@
+﻿@using SoCarro.Core.WebApi.Usuario
+@inject IAspNetUser AppUser
+
+<ul>
+    @if (AppUser.EstaAutenticado())
+    {
+        <li class="textColorNext">
+            @*<label  class="nav-link textColorNext">Olá, @User.Identity.Name!</label>*@
+            <a href="#" class="nav-link textColorNext" title="Manage">Olá, @AppUser.ObterUserEmail()!</a>
+        </li>
+        <li class="nav-item textColorNext">
+            <a asp-controller="Identidade" asp-action="Logout" class="si-email3 textColorNext">
+                <span class="ts-icon">
+                    <i class="icon-sign-out-alt"></i>
+                </span>
+                <span class="ts-text">Logout</span>
+            </a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a asp-controller="Identidade" asp-action="Login" class="si-email3 textColorNext">
+                <span class="ts-icon">
+                    <i class="icon-user-check"></i>
+                </span>
+                <span class="ts-text">Login</span>
+            </a>
+        </li>
+    }
+</ul>

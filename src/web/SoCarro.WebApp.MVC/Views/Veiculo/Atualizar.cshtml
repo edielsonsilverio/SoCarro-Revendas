@@ -1,0 +1,110 @@
+﻿@using SoCarro.WebApp.MVC.ViewModels
+@model VeiculoViewModel
+
+@{
+    var title = "Atualizar";
+}
+
+<form method="post" asp-action="Atualizar">
+    @*<vc:Summary></vc:Summary>*@
+
+    <div class="row mt-3">
+        <div class="col-3"></div>
+        <div class="   backgroundWhite border col-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Modelo.Id" />
+
+            <div class="col-12">
+                <h2 class="textColor">@title</h2>
+                <br />
+            </div>
+
+            <div class="col-12">
+                <div class="form-group row">
+
+                    <div class="col-10">
+                        <ejs-textbox id="Nome" cssClass="e-outline" placeholder="Nome" floatLabelType="Always" ejs-for="Nome"></ejs-textbox>
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <ejs-radiobutton value="0" cssClass="e-outline" id="radDisponivel" label="Disponivel" name="Status" checked="true"></ejs-radiobutton><br />
+                        <ejs-radiobutton value="1" cssClass="e-outline" id="radIndisponivel" label="Indisponivel" name="Status"></ejs-radiobutton>
+                        <ejs-radiobutton value="2" cssClass="e-outline" id="radVendido" label="Vendido" name="Status"></ejs-radiobutton>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-6">
+                        <ejs-textbox id="Renavam" type="number" cssClass="e-outline" placeholder="Renavam" floatLabelType="Always" ejs-for="Renavam"></ejs-textbox>
+                        <span asp-validation-for="Renavam" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <ejs-numerictextbox id="Quilometragem" format="n" cssClass="e-outline" placeholder="Quilometragem" floatLabelType="Always" ejs-for="Quilometragem"></ejs-numerictextbox>
+                        <span asp-validation-for="Quilometragem" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <ejs-numerictextbox id="Valor" format="c2" cssClass="e-outline" placeholder="Valor" floatLabelType="Always" ejs-for="Valor"></ejs-numerictextbox>
+                        <span asp-validation-for="Valor" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-6">
+                        <select class="form-control" asp-for="MarcaId" asp-items="@Model.Marcas.ToList()">
+                            <option selected disabled>--Selecione a Marca--</option>
+                        </select>
+                        <span asp-validation-for="MarcaId" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-6">
+                        <select class="form-control" asp-for="ProprietarioId" asp-items="@Model.Proprietarios.ToList()">
+                            <option selected disabled>--Selecione o Proprietário--</option>
+                        </select>
+                        <span asp-validation-for="ProprietarioId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <hr />
+                <h2 class="textColor">Informe o Modelo</h2>
+
+                <partial name="_Modelo" model="@Model" />
+
+                <div class="form-group row">
+                    <div class="col-12">
+                        <div class="row">
+
+                            <div class="col">
+                                <a asp-action="Index" class="btn controlColor form-control">
+                                    <i class="icon-reply" aria-hidden="true"></i>&nbsp;
+                                    Voltar para Lista
+                                </a>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn controlColor form-control">
+                                    <i class="icon-save" aria-hidden="true"></i>&nbsp;&nbsp;Salvar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-3"></div>*@
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+
+<script>
+    BuscaCep();
+</script>
+}
